@@ -26,6 +26,7 @@ function createGame(){
         .then((data) => data.json())
         .then((res) => {
           window.location.href = "/dashboard/" + res.gameID;
+          localStorage.setItem("gameID", res.gameID);
         });
     }
 }

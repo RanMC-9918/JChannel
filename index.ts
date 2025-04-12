@@ -57,8 +57,12 @@ app.get("/create/game", (req, res) => {
   res.render(path.join("create", "game"));
 });
 
-app.get("/dashboard", (req, res) => {
-  res.render(path.join("dashboard", "index"));
+app.get("/dashboard/:id", (req, res) => {
+  let gameID = req.params.id;
+  console.log(gameID);
+  res.render(path.join("dashboard", "index"), {
+    gameID
+  });
 });
 
 app.post("/api/create/game", (req, res) => {
