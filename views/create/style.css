@@ -6,12 +6,14 @@ main{
 }
 
 h1{
-    font-size: 3rem;
-    padding: 10px;
+    font-size: 4rem;
+    padding: 15px;
+    width: 100vw;
+    text-align:center;
+    margin:auto;
 }
 
 .backLink{
-    color: white;
     position: absolute;
     bottom: 10px;
     left: 30px;
@@ -26,6 +28,12 @@ h1{
     padding: 20px;
     border-radius: 20px;
     height: 400px;
+    box-shadow: 2px 2px 3px 3px rgb(0, 0, 0, 0.2);
+    transition:all 0.2s;
+}
+
+.card:hover{
+    box-shadow: 2px 2px 3px 3px rgb(0, 0, 0, 0.5);
 }
 
 .card > button{
@@ -33,8 +41,16 @@ h1{
     margin: 0;
 }
 
+.card > button:hover {
+    color:white;
+    padding: 13px 15px;
+}
+
 .card-container{
     display: flex;
+    align-items: center;
+    justify-content:center;
+
     gap: 20px;
     padding: 10px;
 }

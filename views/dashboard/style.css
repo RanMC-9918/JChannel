@@ -18,3 +18,31 @@ h1{
     margin: 0;
     font-size: 3rem;
 }
+
+#teamDivContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+
+}
+
+.teamDiv{
+    background-color: rgb(104, 174, 105);
+    width: 300px;
+    font-size: 2rem;;
+    margin: 20px;
+    text-align: center;
+    border-radius: 40px;
+    box-shadow: 10px 10px 30px #1111114e;
+    cursor: pointer;
+    transition: scale 0.2s;
+}
+
+.teamDiv p{
+    font-size: 1.5rem;
+}
+
+.teamDiv:hover{
+    scale: 1.05;
+}

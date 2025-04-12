@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +10,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <ul>
-            <div class="settings">
-                <li><label for="">Max Players: </label><input id="players" pattern="number" type="number"></li>
-                <li><label for="">Game Time:</label> <div class="together"><input id="time" pattern="number" type="number">minutes</div></li>
-            </div>
+        
+        <div class="settings">
+            <ul>
+                <li><h2 for="">Max Players: </h2><div class="together"><input id="players" pattern="number" type="number"></div></li>
+                <li><h2 for="">Game Time:</h2> <div class="together"><input id="time" pattern="number" type="number" placeholder="Minutes"></div></li>
+                <li><h2 for="">Squares:</h2> <div class="together"><input id="squares" pattern="number" type="number"></div></li>
+
+            </ul>
             <button id="submit">Submit</button>
-        </ul>
+        </div>
+            
+        
         <a href="../" class="backLink">
          <h2>&lt Cancel</h2>
         </a>

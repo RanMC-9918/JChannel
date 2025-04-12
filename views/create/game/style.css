@@ -1,13 +1,7 @@
 ul{
     list-style-type: none;
-    width: 500px;
-    height: 600px;
-    background-color: rgba(0, 0, 0, 0.138);
-    padding: 20px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    list-style-position:inside;
+    transform: translateX(-1em);
 }
 
 body{
@@ -18,9 +12,11 @@ body{
     overflow: hidden;
 }
 
-label{
+h2{
     font-size: 2rem;
     margin-bottom: 10px;
+    padding-bottom:20px;
+    width: 200px;
 }
 
 li{
@@ -33,10 +29,11 @@ li{
 input{
     padding: 5px 10px;
     font-size: 1.5rem;
-    width: 200px;
-    margin: 0px;
+    margin-left: 15px;
     border: none;
+    width: 100px;
     border-radius: 10px;
+    flex:1;
 }
 
 button{
@@ -49,11 +46,20 @@ button{
 
 .together{
     display: flex;
+    width: 400px;
     gap: 10px;
     align-items: center;
 }
 
 .settings{
-
+    width: 600px;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 

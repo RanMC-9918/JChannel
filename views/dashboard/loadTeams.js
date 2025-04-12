@@ -1,17 +1,22 @@
 
-let gameID = localStorage.getItem('gameID');
+let gameID = localStorage.getItem('gameID') || (Number)(window.location.href.substring(window.location.href.lastIndexOf("/")+1));
+
+let teamDivContainer = document.getElementById("teamDivContainer");
+
+let teams = [];
 
 if(!gameID){
     window.location.href = "/";
 }
 
-let teamAnswered = [];
 
-setInterval(loadTeams, 1000);
+loadTeams();
+
+setInterval(loadTeams, 5000);
 
 
 function loadTeams(){
-    fetch('/api/games/?id=' + gameID, {
+    fetch('/api/game/?id=' + gameID, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -20,24 +25,31 @@ function loadTeams(){
         if(res.error){
             window.location.href = "/";
         }else{
-            let teams = res.teams;
+            teams = res.teams;
+            console.log(teams);
+
+            if(!teams){
+                return;
+            }
+
+            teamDivContainer.innerHTML = "";
 
             teams.forEach((team, index) => {
-                if(index >= teamAnswered.length){
-                    teamAnswered.push(0);
-                }
                 let teamDiv = document.createElement("div");
-                teamDiv.className = "teamSquare";
+                teamDiv.innerHTML = `<h3>${team.teamName}</h3><p>Answered: ${team.answered}</p>`;
+                teamDiv.className = "teamDiv";
                 teamDiv.id = team.teamName;
-                team.onclick = () => { updateTeam( team.teamName ) };
+                teamDiv.onclick = () => { updateTeam( team.teamName, index) };
+                teamDivContainer.appendChild(teamDiv);
             });
 
         }
     });
 }
 
-function updateTeam(e){
-    fetch("/api/games/updateTeam?id=" + gameID, {
+function updateTeam(e, i){
+    loadTeams();
+    fetch("/api/update/team?id=" + gameID, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -37,12 +37,16 @@ h1{
     line-height: 20px;
 }
 
+
+  
+
+
 .backLink{
-    color: white;
     position: absolute;
     bottom: 10px;
     left: 30px;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 100;
+    
 }

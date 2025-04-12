@@ -7,9 +7,8 @@ const PORT = 3000;
 interface Team {
   teamName: string;
   boardSpace: number;
-  hasSlowness: number;
-  hasSpeed: number;
-  hasLuck: number;
+  speed: number;
+  answered: number;
 }
 
 //slowness: 0
@@ -22,6 +21,7 @@ interface Game {
   gameTime: number;
   gameMaxPlayers: number;
   gameID: number;
+  squares: number[];
 }
 
 let games: Game[] = [];
@@ -75,6 +75,12 @@ app.post("/api/create/game", (req, res) => {
 
   let id = Math.floor(Math.random() * 1000000); // Generate a random game ID
 
+  while(id.toString().length < 6){
+    console.log("regenerating: " + id);
+    id = Math.floor(Math.random() * 1000000);
+    console.log("regenerating: " + id)
+  }
+
   if(!settings.gameType) {
     console.warn("No gametype");
     return;
@@ -88,19 +94,37 @@ app.post("/api/create/game", (req, res) => {
     return;
   }
 
+  if(!settings.squaresLength){
+    console.warn("No squares length");
+  }
+
+  let squares:number[] = [];
+
+  for(let i = 0; i < settings.squaresLength; i++){
+    if(Math.random() > 0.8){
+      squares.push(Math.floor((Math.random()-0.5)*10));
+      console.log("sdfsd");
+    }
+    else{
+      squares.push(0);
+      console.log("s");
+    }
+  }
+
   games.push({
     teams: [],
     gameType: settings.gameType,
     gameTime: settings.gameTime,
     gameMaxPlayers: settings.gameMaxPlayers,
     gameID: id,
+    squares
   });
 
   res.send(JSON.stringify({ gameID: id }));
 });
 
 app.get("/api/game", (req, res) => {
-  let gameID = req.query.gameID;
+  let gameID = req.query.id;
   if (!gameID) {
     console.warn("No game ID provided");
     return;
@@ -114,6 +138,60 @@ app.get("/api/game", (req, res) => {
 
   res.send(JSON.stringify(game));
 });
+
+app.post("/api/create/team", (req, res) => {
+  let gameID = req.body.gameID;
+  let teamName = req.body.teamName;
+
+  if (!gameID) {
+    console.warn("No game ID provided");
+    return;
+  }
+  if (!teamName) {
+    console.warn("No teams provided");
+    return;
+  }
+
+  let game = games.find((game) => game.gameID == gameID);
+
+  if (!game) {
+    console.warn("Game not found");
+    return;
+  }
+
+  game.teams.push({
+    teamName,
+    boardSpace: 0,
+    speed: 0,
+    answered: 0,
+  });
+
+  console.log("Team Created: " + teamName)
+
+  res.send(JSON.stringify({ success: true }));
+});
+
+app.post("/api/update/team", (req, res) => {
+  let gameID = req.query.id;
+  let teamName = req.body.teamName;
+
+  let game = games.find((game) => game.gameID == gameID);
+
+  if(!game){
+    return;
+  }
+
+  let team = game.teams.find((team) => team.teamName == teamName);
+
+  if(!team){
+    console.warn("No team with name: " + teamName);
+    return;
+  }
+
+  team.answered++;
+
+
+})
 
 // Start the server
 app.listen(PORT, () => {

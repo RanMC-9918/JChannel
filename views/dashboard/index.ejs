@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <%- include("../components/header") %>
+    <script src="loadTeams.js" defer></script>
 </head>
 <body>
     <div class="header">
         <h1><span style="font-weight: 300;">Game Code: </span><%= gameID %></h1>
+    </div>
+    <div id="teamDivContainer">
+        No teams
     </div>
 </body>
 </html>
