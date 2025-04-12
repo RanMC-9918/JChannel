@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../components/header") %>
+</head>
+<body>
+    <main>
+        <h1>Choose Game Board:</h1>
+        <div class="card-container">
+            <div class="card">
+                <img src="../assets/game1.png" alt="Life-style game">
+                <h2>The Game of Life</h2>
+                <p>Students will navigate the </p>
+                <button class="joinGame" id="1">Game 1</button>
+            </div>
+            <div class="card">
+                <img src="../assets/game2.png" alt="Life-style game">
+                <h2>The Game of Life</h2>
+                <p>Students will navigate the </p>
+                <button class="joinGame" id="2">Game 2</button>
+            </div>
+        </div>
+        <script>
+            const buttons = document.querySelectorAll('.joinGame');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const gameId = button.id;
+                    window.location.href = `/create/game/?type=${gameId}`;
+                });
+            });
+        </script>
+    </main>
+    <a href="../" class="backLink">
+        <h2>&lt Back</h2>
+    </a>
+</body>
+</html>

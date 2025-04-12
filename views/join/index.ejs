@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../components/header") %>
+</head>
+<body>
+    <main>
+        <h1>Enter game code:</h1>
+        <input pattern="[0-9]{6}" placeholder="000000" id="gameCode" name="gameCode" required>
+        <button id="joinGame" 
+        onclick="
+        let code = document.getElementById('gameCode'); 
+        let codeRegex = /[0-9]{6}/g;
+        if(codeRegex.test(code.value)){
+            window.location = '/game/?id=' + code.value
+        }
+        "
+        >Join</button>
+    </main>
+    <a href="../" class="backLink">
+        <h2>&lt Back</h2>
+    </a>
+</body>
+</html>

@@ -1,0 +1,40 @@
+body{
+
+}
+
+main{
+}
+
+h1{
+    font-size: 3rem;
+    padding: 10px;
+}
+
+.backLink{
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.card{
+    background-color: rgb(104, 174, 105);
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    height: 400px;
+}
+
+.card > button{
+    background-color: rgb(211, 84, 30);
+    margin: 0;
+}
+
+.card-container{
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}

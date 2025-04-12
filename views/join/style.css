@@ -1,0 +1,48 @@
+body{
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-size: 2rem;
+}
+
+main{
+    text-align: center;
+    
+}
+
+input{
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 2rem;
+    outline: none;
+    border: solid 2px red;
+}
+
+input:valid{
+    border: none;
+}
+
+button{
+    border-radius: 15px;
+    font-size: 1.8rem;
+    padding: 10px 20px;
+}
+
+h1{
+    margin-top: -10px;
+    line-height: 20px;
+}
+
+.backLink{
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 100;
+}
