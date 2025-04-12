@@ -9,12 +9,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
         <ul>
-            <li><label for="">Max Players: </label><input type="number"></li>
-            <li><label for="">Game Time:</label> <div><input type="text">minutes</div></li>
-            <button>Submit</button>
+            <div class="settings">
+                <li><label for="">Max Players: </label><input id="players" pattern="number" type="number"></li>
+                <li><label for="">Game Time:</label> <div class="together"><input id="time" pattern="number" type="number">minutes</div></li>
+            </div>
+            <button id="submit">Submit</button>
         </ul>
-    </form>
+        <a href="../" class="backLink">
+         <h2>&lt Cancel</h2>
+        </a>
 </body>
 </html>

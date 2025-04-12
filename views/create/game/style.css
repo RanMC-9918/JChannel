@@ -5,6 +5,9 @@ ul{
     background-color: rgba(0, 0, 0, 0.138);
     padding: 20px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 body{
@@ -33,17 +36,24 @@ input{
     width: 200px;
     margin: 0px;
     border: none;
-    
+    border-radius: 10px;
 }
 
 button{
     width: 100%;
     padding: 10px 20px;
     font-size: 2rem;
+    border-radius: 10px;
+
 }
 
-div{
+.together{
     display: flex;
     gap: 10px;
     align-items: center;
 }
+
+.settings{
+
+}
+
